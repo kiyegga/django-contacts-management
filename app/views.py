@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Contact
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.forms import UserCreationForm
 
 # def home(request):
 #     contacts = Contact.objects.all()
@@ -77,3 +78,8 @@ class ContactDeleteView(DeleteView):
     template_name = 'delete.html'
     success_url = '/'
 
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'registration/signup.html'
+    success_url = 'home '

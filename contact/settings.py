@@ -132,3 +132,7 @@ MEDIA_ROOT = BASE_DIR / '/media/'
 
 # Crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+#for authentication
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'app:home'

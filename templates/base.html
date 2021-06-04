@@ -33,9 +33,21 @@
             <i class="fas fa-user-circle"></i>&nbsp;Contacts
         </a>
         <p class="feature-link m-0 p-0">
-        <a href="{% url 'app:create' %}" class="mr-4 text-white">
-        <i class="fas fa-plus"></i> &nbsp; Add Contact
-        </a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'app:create' %}" class="mr-4 text-white">
+                    <i class="fas fa-plus"></i> &nbsp; Add Contact
+                </a>
+                <a href="{% url 'logout' %}" class="mr-4 text-white">
+                    <i class="fas fa-sign-in-alt"></i> &nbsp; Logout
+                </a>
+            {% else %}
+                <a href="{% url 'app:signup' %}" class="mr-4 text-white">
+                    <i class="fas fa-user-plus"></i> &nbsp; Signup
+                </a>
+                <a href="{% url 'login' %}" class="mr-4 text-white">
+                    <i class="fas fa-sign-in-alt"></i> &nbsp; Login
+                </a>
+            {% endif %}
         </p>
         <form class="form-inline my-2" action="{% url 'app:search' %}" method="GET">
             {% csrf_token %}
