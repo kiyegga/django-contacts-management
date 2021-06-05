@@ -51,8 +51,8 @@
         </p>
         <form class="form-inline my-2" action="{% url 'app:search' %}" method="GET">
             {% csrf_token %}
-            <input class="form-control search-box" type="search" placeholder="Find contacts..." name="search_term"/>
-            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <input class="form-control search-box" type="search" value="{{search_term}}" placeholder="Find contacts..." name="search_term"/>
+            <button class="btn" type="submit" value="{{search_term}}" ><i class="fas fa-search"></i></button>
         </form>
     </nav>
     <!-- Navbar ends -->
